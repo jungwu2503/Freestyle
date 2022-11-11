@@ -33,7 +33,7 @@ public class DescriptionFrame extends JFrame {
 		//dPanel = new JPanel();
 		//dPanel.setBackground(Color.white);
 		
-		label = new JLabel("<html>SpaceBar = 점프<br>날아오는 장애물들을 피해 살아남으세요!<br>점수를 많이 얻어서 개발자를 기쁘게 만들어주세요!</html>");
+		label = new JLabel("<html>SpaceBar = 점프<br>날아오는 장애물들을 피해 살아남으세요!<br>점수를 많이 얻어서 신기록을 세우세요!</html>");
 		label.setFont(new Font(null, Font.PLAIN, 20));		
 		//label.setBounds(30, 30, 20, 20);
 		label.setLocation(50, 200);

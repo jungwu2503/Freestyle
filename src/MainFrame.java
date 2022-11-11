@@ -42,7 +42,7 @@ public class MainFrame extends JFrame {
 			if (e.getSource() == newWindowBtn) {
 				dispose();
 				audioOff();
-				// <게임 프레임 만들기>
+				GameFrame gf = new GameFrame();
 			}
 		});
 		
