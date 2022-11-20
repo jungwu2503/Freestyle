@@ -42,7 +42,8 @@ public class MainFrame extends JFrame {
 			if (e.getSource() == newWindowBtn) {
 				dispose();
 				audioOff();
-				GameFrame gf = new GameFrame();
+				GameSelectFrame gsf = new GameSelectFrame();
+				gsf.setVisible(true);
 			}
 		});
 		
@@ -89,9 +90,6 @@ public class MainFrame extends JFrame {
 		setSize(500,500);
 		setLayout(null);
 		setLocationRelativeTo(null);
-		//setLayout(new BorderLayout());
-		//add(newWindowBtn, BorderLayout.CENTER);
-		setVisible(true);
 		
 		audioOn();
 	}
