@@ -14,25 +14,17 @@ public class MainFrame extends JFrame {
 	ImageIcon imageIcon;
 	ImageIcon frameIcon;
 	LineBorder lb;
-	//EmptyBorder eb;
 	File mainBgmFile;
 	Clip mainBgmClip;
-	//FileInputStream fis; 
 	
 	MainFrame() {
-		
-		//imgLabel = new JLabel(new Icon("../img/suldenlion.jpeg", 30));
-		//image = Toolkit.getDefaultToolkit().getImage("suldenlion.jpeg");
 		imageIcon = new ImageIcon(MainFrame.class.getResource("img/GUIsuldenlion.png"));
 		frameIcon = new ImageIcon(MainFrame.class.getResource("img/SulIcon.png"));
 		 
 		imgLabel = new JLabel(imageIcon);
 		imgLabel.setBounds(70, 60, 350, 200);
-		//imgLabel.setPreferredSize(new Dimension(100, 100));
-		//imgLabel.setLocation(50, 50);
 		
 		newWindowBtn = new JButton("게임 시작");
-		//newWindowBtn.setSize(200, 150);
 		newWindowBtn.setBounds(140, 280, 200, 80);
 		newWindowBtn.setFont(new Font(null, Font.BOLD, 30));
 		newWindowBtn.setFocusable(false);
@@ -53,8 +45,6 @@ public class MainFrame extends JFrame {
 		descriptionBtn.setFocusable(false);
 		descriptionBtn.setBorderPainted(false);
 		descriptionBtn.setContentAreaFilled(false);
-		/*eb = new EmptyBorder(5,3,5,3);
-		descriptionBtn.setBorder(eb);*/	
 		descriptionBtn.addActionListener((e) -> {
 			if (e.getSource() == descriptionBtn) {
 				dispose();
