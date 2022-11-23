@@ -15,10 +15,6 @@ public class DeveloperFrame extends JFrame {
 	ImageIcon frameIcon;
 	
 	DeveloperFrame() {
-		/*dPanel = new JPanel();
-		dPanel.setPreferredSize(null);		
-		dPanel.add(textArea);		
-		add(dPanel);*/
 		
 		frameIcon = new ImageIcon(MainFrame.class.getResource("img/SulIcon.png"));
 				

@@ -1,17 +1,48 @@
 import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.swing.table.*;
 
-/*
-class ButtonsModel extends AbstractTableModel {
+/*class ButtonMenuCellRenderer extends DefaultTableCellRenderer {
+	
+	class ButtonMenuCell extends JPanel {
+		
+		ButtonMenuCell(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+			
+		}
+	
+		public void paintComponent(Graphics g) {
+			
+		}
+	}
+	
+	//MenuModel model;
+	//MenuNameCellRenderer(MenuModel model) {
+	//	this.model = model;
+	//}
+	
+	public Component getTableCellRendererComponent(JTable table, 
+			Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+		if (col == 1) {
+			return new ButtonMenuCell(table, value, isSelected, hasFocus, row, col);
+		} else {
+			Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+			return cell;
+		}
+	}
+	
+}
 
+class MenuModel extends AbstractTableModel {
+
+	
+	
 	ArrayList<JButton> list = new ArrayList<JButton>();
 	
-	ButtonsModel() {
+	MenuModel() {
 		
 	}
 	
@@ -41,7 +72,7 @@ public class GameSelectFrame extends JFrame {
 	JPanel titlePanel;
 	JPanel tablePanel;
 	JTable table;
-	//ButtonsModel model;
+	//MenuModel model;
 	JButton[] buttons;
 
 	public GameSelectFrame() {
@@ -56,18 +87,58 @@ public class GameSelectFrame extends JFrame {
 		};		
 		titlePanel.setPreferredSize(new Dimension(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT/7));
 		
-		tablePanel = new JPanel();
-		tablePanel.setBackground(Color.white);
+		tablePanel = new JPanel(new GridLayout(3, 3, 30, 30));
+		tablePanel.setBackground(Color.green);
 		tablePanel.setPreferredSize(new Dimension(Main.SCREEN_WIDTH, Main.SCREEN_HEIGHT));
 		
-		//table = new JTable(model = new ButtonsModel());
-		//table.setDefaultRenderer(JButton.class, null)
-		JButton btn = new JButton("koko");
-		//add(tablePanel, new GridLayout(5, 3)); 이딴식으로 못쓰는듯
-		/*buttons = new JButton[15];
-		for (int i = 0; i < 15; i++) {
-			tablePanel.add(buttons[i]);
-		}*/
+		//table = new JTable(model = new MenuModel());
+		//JScrollPane sp = new JScrollPane(table);
+		//table.setDefaultRenderer(JButton.class, new ButtonMenuCellRenderer());
+		
+		JButton digitalClockBtn = new JButton("DigitalClock");
+		digitalClockBtn.addActionListener((e) -> {
+			Select_DigitalClock frame = new Select_DigitalClock();
+			frame.setVisible(true);
+		});
+		tablePanel.add(digitalClockBtn);
+		JButton analogClockBtn = new JButton("AnalogClock");
+		analogClockBtn.addActionListener((e) -> {
+			JFrame frame = new Select_AnalogClock();
+			frame.setVisible(true);
+		});
+		tablePanel.add(analogClockBtn);
+		JButton calculatorBtn = new JButton("Calculator");
+		tablePanel.add(calculatorBtn);
+		calculatorBtn.addActionListener((e) -> {
+			Select_Calculator frame = new Select_Calculator();
+			frame.setVisible(true);
+		});
+		JButton calendarBtn = new JButton("Calendar");
+		tablePanel.add(calendarBtn);
+		JButton mailBtn = new JButton("메일보내기");
+		tablePanel.add(mailBtn);
+		JButton browserBtn = new JButton("브라우저 띄우기");
+		tablePanel.add(browserBtn);
+		JButton drawerBtn = new JButton("Drawer");
+		tablePanel.add(drawerBtn);
+		drawerBtn.addActionListener((e) -> {
+			Select_Drawer frame = new Select_Drawer();
+			frame.setVisible(true);
+		});
+		JButton chattingBtn = new JButton("Chatting");
+		tablePanel.add(chattingBtn);
+		JButton horseBtn = new JButton("Horse");
+		tablePanel.add(horseBtn);
+		JButton ladderBtn = new JButton("사다리");
+		tablePanel.add(ladderBtn);
+		JButton rhythmBtn = new JButton("Rhythm");
+		tablePanel.add(rhythmBtn);
+		JButton snakeBtn = new JButton("Snake");
+		tablePanel.add(snakeBtn);	
+		JButton planeBtn = new JButton("전투기");
+		tablePanel.add(planeBtn);	
+		JButton mineBtn = new JButton("Mines");
+		tablePanel.add(mineBtn);	
 		
 		add(titlePanel, BorderLayout.NORTH);
 		add(tablePanel, BorderLayout.CENTER);
