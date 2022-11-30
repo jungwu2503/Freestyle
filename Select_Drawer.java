@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class Select_Drawer extends JFrame {
 	ImageIcon frameIcon;
-	DrawerView view;
+	D_DrawerView canvas;
 	
 	Select_Drawer() {
 		frameIcon = new ImageIcon(MainFrame.class.getResource("img/SulIcon.png"));
@@ -17,8 +17,8 @@ public class Select_Drawer extends JFrame {
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		
 		Container container = this.getContentPane();
-		view = new DrawerView();
-		container.add(view);
+		canvas = new D_DrawerView();
+		container.add(canvas);
 		
 		JMenuBar menus = new JMenuBar();
 		setJMenuBar(menus);
@@ -78,6 +78,17 @@ public class Select_Drawer extends JFrame {
 				setVisible(false);
 			}
 		});
+		
+		JMenu figureMenu = new JMenu("Figures");
+		menus.add(figureMenu);
+		
+		JMenuItem figureBox = new JMenuItem("Box");
+		figureMenu.add(figureBox);
+		figureMenu.addActionListener((e) -> canvas.selectFigure(D_DrawerView.DRAW_BOX));
+
+		JMenuItem figureLine = new JMenuItem("Line");
+		figureMenu.add(figureLine);
+		figureMenu.addActionListener((e) -> canvas.selectFigure(D_DrawerView.DRAW_LINE));
 		
 		JMenu helpMenu = new JMenu("Help");
 		menus.add(helpMenu);

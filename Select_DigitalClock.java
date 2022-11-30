@@ -1,8 +1,11 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.swing.*;
+import javax.swing.Timer;
 
 public class Select_DigitalClock extends JFrame {
 
@@ -48,12 +51,29 @@ public class Select_DigitalClock extends JFrame {
 		add(dayLabel);
 		add(dateLabel);
 		
-		setTime();
+		timer.start();
+		//setTime();
 	}
 	
 	//public void paintComponent(Graphics g) { }
 	
-	public void setTime() {
+	Timer timer = new Timer(1000,new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {				
+			time = timeFormat.format(Calendar.getInstance().getTime());
+			timeLabel.setText(time);
+			
+			day = dayFormat.format(Calendar.getInstance().getTime());
+			dayLabel.setText(day);
+			
+			date = dateFormat.format(Calendar.getInstance().getTime());
+			dateLabel.setText(date);
+			System.out.println(date + " " + day + " " + time);
+		}			
+	});
+	
+	/*public void setTime() {
 		while(true) {
 			time = timeFormat.format(Calendar.getInstance().getTime());
 			timeLabel.setText(time);
@@ -71,7 +91,7 @@ public class Select_DigitalClock extends JFrame {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 	
 }
 

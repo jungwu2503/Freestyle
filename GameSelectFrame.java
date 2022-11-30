@@ -123,6 +123,12 @@ public class GameSelectFrame extends JFrame {
 			Select_Browser frame = new Select_Browser();
 			frame.setVisible(true);
 		});
+		JButton quizBtn = new JButton("Quiz");
+		tablePanel.add(quizBtn);
+		quizBtn.addActionListener((e) -> {
+			Select_Quiz frame = new Select_Quiz();
+			frame.setVisible(true);
+		});
 		JButton drawerBtn = new JButton("Drawer");
 		tablePanel.add(drawerBtn);
 		drawerBtn.addActionListener((e) -> {
