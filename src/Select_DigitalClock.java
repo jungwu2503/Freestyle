@@ -1,10 +1,13 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javax.swing.*;
+import javax.swing.Timer;
 
-public class Select_DigitalClock extends JFrame {
+public class Select_DigitalClock extends CursorSet {
 
 	Calendar calendar;
 	SimpleDateFormat timeFormat;
@@ -22,9 +25,10 @@ public class Select_DigitalClock extends JFrame {
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		setTitle("My Clock Program");
 		setLayout(new FlowLayout());
-		setSize(350,200);
+		setSize(350,150);
 		setResizable(false);
 		setLocationRelativeTo(null);
+		getContentPane().setBackground(Color.white);
 		
 		timeFormat = new SimpleDateFormat("hh:mm:ss a");
 		dayFormat = new SimpleDateFormat("EEEE");
@@ -48,12 +52,29 @@ public class Select_DigitalClock extends JFrame {
 		add(dayLabel);
 		add(dateLabel);
 		
-		setTime();
+		timer.start();
+		//setTime();
 	}
 	
 	//public void paintComponent(Graphics g) { }
 	
-	public void setTime() {
+	Timer timer = new Timer(1000,new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {				
+			time = timeFormat.format(Calendar.getInstance().getTime());
+			timeLabel.setText(time);
+			
+			day = dayFormat.format(Calendar.getInstance().getTime());
+			dayLabel.setText(day);
+			
+			date = dateFormat.format(Calendar.getInstance().getTime());
+			dateLabel.setText(date);
+			//System.out.println(date + " " + day + " " + time);
+		}			
+	});
+	
+	/*public void setTime() {
 		while(true) {
 			time = timeFormat.format(Calendar.getInstance().getTime());
 			timeLabel.setText(time);
@@ -66,11 +87,12 @@ public class Select_DigitalClock extends JFrame {
 			System.out.println(date + " " + day + " " + time);
 			try {
 				Thread.sleep(1000);
+				this.repaint();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
-	}
+	}*/
 	
 }
 

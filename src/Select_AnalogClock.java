@@ -2,7 +2,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 
-public class Select_AnalogClock extends JFrame {
+public class Select_AnalogClock extends CursorSet {
 	Container contentPane;
 	
 	Select_AnalogClock() {

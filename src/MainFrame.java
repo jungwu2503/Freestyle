@@ -1,11 +1,13 @@
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends CursorSet {
 
 	JButton newWindowBtn;
 	JButton descriptionBtn;
@@ -16,6 +18,7 @@ public class MainFrame extends JFrame {
 	LineBorder lb;
 	File mainBgmFile;
 	Clip mainBgmClip;
+	boolean isBgmOn;
 	
 	MainFrame() {
 		imageIcon = new ImageIcon(MainFrame.class.getResource("img/GUIsuldenlion.png"));
@@ -36,6 +39,18 @@ public class MainFrame extends JFrame {
 				audioOff();
 				GameSelectFrame gsf = new GameSelectFrame();
 				gsf.setVisible(true);
+			}
+		});
+		
+		setFocusable(true);
+		addKeyListener(new KeyAdapter() {
+			public void keyPressed(KeyEvent e) {
+				if (!isBgmOn && e.getKeyCode() == KeyEvent.VK_1) {
+					audioOn();
+				}
+				if (isBgmOn && e.getKeyCode() == KeyEvent.VK_2) {
+					audioOff();
+				}
 			}
 		});
 		
@@ -91,6 +106,7 @@ public class MainFrame extends JFrame {
 			mainBgmClip.open(AudioSystem.getAudioInputStream(mainBgmFile));
 			mainBgmClip.loop(Clip.LOOP_CONTINUOUSLY);
 			mainBgmClip.start();
+			isBgmOn = true;
 		} catch (Exception e) {
 			System.err.println(e);
 		}
@@ -98,6 +114,11 @@ public class MainFrame extends JFrame {
 	
 	public void audioOff() {
 		mainBgmClip.stop();
+		isBgmOn = false;
+	}
+	
+	public boolean getIsBgmOn() {
+		return isBgmOn;
 	}
 	
 }

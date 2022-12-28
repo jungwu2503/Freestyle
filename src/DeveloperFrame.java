@@ -3,7 +3,7 @@ import java.net.*;
 
 import javax.swing.*;
 
-public class DeveloperFrame extends JFrame {
+public class DeveloperFrame extends CursorSet {
 	
 	//JPanel dPanel;
 	JLabel label;
@@ -27,6 +27,7 @@ public class DeveloperFrame extends JFrame {
 			if (e.getSource() == backBtn) {
 				dispose();
 				MainFrame mainFrame = new MainFrame();
+				mainFrame.setVisible(true);
 			}
 		});
 		

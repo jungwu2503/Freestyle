@@ -4,7 +4,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 
-public class DescriptionFrame extends JFrame {
+public class DescriptionFrame extends CursorSet {
 
 	//JPanel dPanel;
 	JLabel label;
@@ -27,13 +27,15 @@ public class DescriptionFrame extends JFrame {
 			if (e.getSource() == backBtn) {
 				dispose();
 				MainFrame mainFrame = new MainFrame();
+				mainFrame.setVisible(true);		
 			}
 		});
 		
 		//dPanel = new JPanel();
 		//dPanel.setBackground(Color.white);
 		
-		label = new JLabel("<html>SpaceBar = 점프<br>날아오는 장애물들을 피해 살아남으세요!<br>점수를 많이 얻어서 신기록을 세우세요!</html>");
+		label = new JLabel("<html><strike>SpaceBar = 점프<br>날아오는 장애물들을 피해 살아남으세요!<br>점수를 많이 얻어서 신기록을 세우세요!</strike><br>"
+				+ "메인화면 숫자 1 배경음악 켜기 / 숫자 2 배경음악 끄기 </html>");
 		label.setFont(new Font(null, Font.PLAIN, 20));		
 		//label.setBounds(30, 30, 20, 20);
 		label.setLocation(50, 200);

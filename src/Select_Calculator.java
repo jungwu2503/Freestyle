@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class Select_Calculator extends JFrame implements ActionListener {
+public class Select_Calculator extends CursorSet implements ActionListener {
 
 	
 	JTextField textfield;
